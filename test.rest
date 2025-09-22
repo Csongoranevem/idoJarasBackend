@@ -2,3 +2,14 @@
 
 GET http://localhost:3000
 Content-Type: application/json
+
+### GET / route
+
+POST http://localhost:3000/users/getUser
+Content-Type: application/json
+
+{
+"nev": "Jonapot",
+"email": "czakocsongor@turr.hu",
+"password": "asdfg123"
+}
