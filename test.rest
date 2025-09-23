@@ -5,11 +5,11 @@ Content-Type: application/json
 
 ### GET / route
 
-POST http://localhost:3000/users/getUser
+POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
 "nev": "Jonapot",
-"email": "czakocsongor@turr.hu",
-"password": "asdfg123"
+"email": "reszapi@gmail.com",
+"password": "SauherHentaiKepek67"
 }

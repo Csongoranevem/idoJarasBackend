@@ -33,3 +33,21 @@ function saveUsers() {
 }
 
 module.exports = {users, loadUsers, saveUsers, }
+
+
+function getNextID(table) {
+
+    let  NextID = 1
+    if (table.length == 0) {
+        
+    }
+    let maxIndex;
+
+    for (let i = 0; i < table.length; i++) {
+    if (table[i].email) {
+              maxIndex = i
+    }        
+    }
+
+    
+}

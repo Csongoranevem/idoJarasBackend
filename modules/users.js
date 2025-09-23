@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const { users, IsEmailExists, getNextID, saveUsers } = require('../utils/store');
+const { users, IsEmIDailExists, getNextID, _getNext, saveUsers } = require('../utils/store');
 
-router.post('/getUser', (req, res) =>
-{
-    let data = req.body
-    users.push(data)
-    saveUsers()
-
-})
-
+router.post('/login', (req, res) => {
+    let { email, password } = req.body;
+    let loggeduser = {};
+    users.forEach(user => {
+        if (user.email == email && user.password == password){
+            loggeduser = user;
+            return
+        }
+    })
+    res.send(loggeduser);
+});
 module.exports = router
