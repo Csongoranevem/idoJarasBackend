@@ -8,8 +8,14 @@ Content-Type: application/json
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
-{
-"nev": "Jonapot",
-"email": "reszapi@gmail.com",
-"password": "SauherHentaiKepek67"
-}
+### POST new user
+
+POST http://localhost:3000/users/registration
+Content-Type: application/json
+
+{"name": "cszc","email":"reszapi@gjggghkjhjgil.com","password":"SauherHentaiKepek67"}
+
+### GET new user
+
+GET  http://localhost:3000/users/getUser/1
+Content-Type: application/json
