@@ -28,7 +28,6 @@ router.post('/registration', (req, res) => {
     }
 
     data.id = getNextID(users)  
-    console.log(data.id)
     users.push(data)
     saveUsers()
 

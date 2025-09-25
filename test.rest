@@ -19,3 +19,14 @@ Content-Type: application/json
 
 GET  http://localhost:3000/users/getUser/1
 Content-Type: application/json
+
+
+### POST new weather
+
+GET  http://localhost:3000/users/registration
+Content-Type: application/json
+
+{"name":"Sauher",
+"email":"reszapi@gmail.com",
+"password":"SauherHentaiKepek67",
+}

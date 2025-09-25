@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 const USER_FILE = path.join(__dirname, '..', 'database', 'users.json')
+const WEATHER_FILE = path.join(__dirname, '..', 'database', 'weather.json')
+
 
 let users = []
 let weathers = []
@@ -32,6 +34,11 @@ function loadUsers() {
 function saveUsers() {
     fs.writeFileSync(USER_FILE, JSON.stringify(users));
     users = []
+}
+
+function saveWeather() {
+    fs.writeFileSync(WEATHER_FILE, JSON.stringify(weathers));
+    weathers = []
 }
 
 
@@ -84,4 +91,4 @@ function isDayAlreadyDone(day) {
 }
 
 
-module.exports = { initStore, IsEmailExists, getNextID, loadUsers, saveUsers, isDayAlreadyDone, users, weathers }
+module.exports = { initStore, IsEmailExists, getNextID, loadUsers, saveUsers, saveWeather, isDayAlreadyDone, users, weathers }
