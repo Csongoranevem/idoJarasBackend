@@ -23,10 +23,11 @@ Content-Type: application/json
 
 ### POST new weather
 
-GET  http://localhost:3000/users/registration
+POST http://localhost:3000/users/registration
 Content-Type: application/json
 
-{"name":"Sauher",
-"email":"reszapi@gmail.com",
-"password":"SauherHentaiKepek67",
+{
+  "name": "John Doe",
+  "email": "joh@example.com",
+  "password": "Abcd1234"
 }

@@ -1,24 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const { users, IsEmailExists, getNextID, saveUsers, loadUsers } = require('../utils/store');
+const {IsEmailExists, getNextID, loadUsers, saveUsers, users} = require('../utils/store');
 
 loadUsers()
 
 router.post('/login', (req, res) => {
     let { email, password } = req.body;
-    let loggeduser = {};
-    users.forEach(user => {
-        if (user.email == email && user.password == password){
-            loggeduser = user;
-            return res.send(loggeduser)
+    for (const user of users) {
+        if (user.email === email && user.password === password) {
+            return res.status(200).send(user);
         }
-
-        return res.status(400).send("Hibás adatok")
-    })
-    ;
-
+    }
+    return res.status(400).send("Hibás adatok");
 });
+
 
 router.post('/registration', (req, res) => {
     let data = req.body
@@ -26,10 +22,19 @@ router.post('/registration', (req, res) => {
     if (IsEmailExists(data.email)) {
         return res.status(400).send({msg: "Ez az mail már foglalt"})
     }
-
+    else{
     data.id = getNextID(users)  
+    //console.log(data.name);
+    
+    console.log(data);
+    
     users.push(data)
     saveUsers()
+    res.status(200).send(users);
+
+    }
+
+
 
 
 
@@ -44,7 +49,7 @@ router.get('/getUser/:id', (req, res) => {
             return res.send(user)
         }
     });
-    return res.status(400)
+    return res.status(404).send({ msg: "Felhasználó nem található" });
 })
 
 

@@ -8,7 +8,7 @@ const WEATHER_FILE = path.join(__dirname, '..', 'database', 'weather.json')
 let users = []
 let weathers = []
 
-loadUsers()
+initStore()
 
 
 function loadUsers() {
@@ -26,19 +26,17 @@ function loadUsers() {
     }
 
     else {
-        saveUsers(users)
+        saveUsers()
     }
 }
 
 
 function saveUsers() {
     fs.writeFileSync(USER_FILE, JSON.stringify(users));
-    users = []
 }
 
 function saveWeather() {
     fs.writeFileSync(WEATHER_FILE, JSON.stringify(weathers));
-    weathers = []
 }
 
 
@@ -89,6 +87,8 @@ function isDayAlreadyDone(day) {
 
     
 }
+
+
 
 
 module.exports = { initStore, IsEmailExists, getNextID, loadUsers, saveUsers, saveWeather, isDayAlreadyDone, users, weathers }
